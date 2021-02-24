@@ -54,4 +54,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: End of Scan
         run: |
-          echo Finished scanning.    
+          echo Finished scanning. 
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_MESSAGE: 'Testing message from github action. Please ignore.'
+          SLACK_TITLE: 'Test Message'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}    
