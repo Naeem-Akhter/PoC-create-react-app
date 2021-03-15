@@ -18,46 +18,49 @@ jobs:
     
     steps:
       - uses: actions/checkout@v1
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Set up Node runtime
-        uses: actions/setup-node@v2
-        with:
-          node-version: '10.x'
-      - name: Check WD 1 
-        run: pwd      
-      - name: Check Node 
-        run: which node        
-      - name: Check Node Version 
-        run: node -v        
-      - name: Check NPM 
-        run: which npm        
-      - name: Check NPM Version 
-        run: npm -v         
-      - name: Check Yarn 
-        run: which yarn
-      - name: Check yarn  
-        run: yarn -v
-     
-          
-      # -- Build your project here -- eg. mvn clean package
-      # -- Build with steps and requirements 
-      - name: Synopsys Detect
-        uses: blackducksoftware/github-action@2.0.0
-        with:
-          args: '--blackduck.url="${{ secrets.BLACKDUCK_URL}}" --blackduck.api.token="${{ secrets.BLACKDUCK_API_TOKEN}}" --detect.project.name="${{ secrets.PRODUCT}}" --detect.project.version.name="${{ secrets.VERSION}}" --detect.risk.report.pdf=true --detect.yarn.path=/usr/bin/yarn --detect.yarn.prod.only=true --detect.npm.path=/opt/hostedtoolcache/node/10.23.3/x64/bin/npm --detect.npm.include.dev.dependencies=false --detect.npm.arguments="\"npm install\"" --detect.excluded.detector.types="npm,cpan,nuget,git,maven,lerna"'
-      
-      - name: Check WD  
-        run: pwd      
-      # Runs a set of commands using the runners shell
-      - name: End of Scan
-        run: |
-          echo Finished scanning. 
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_MESSAGE: 'Testing message from github action. Please ignore.'
-          SLACK_TITLE: 'Test Message'
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}    
+      - name: Step 1
+        run: echo "github.action-> ${{github.action}}"
+      - name: Step 2
+        run: echo "github.actor-> ${{github.actor}}"
+      - name: Step 3
+        run: echo "github.base_ref-> ${{github.base_ref}}"
+      - name: Step 4
+        run: echo "github.event-> ${{github.event}}"
+      - name: Step 5
+        run: echo "github.event_name-> ${{github.event_name}}"
+      - name: Step 6
+        run: echo "github.event_path-> ${{github.event_path}}"
+      - name: Step 7
+        run: echo "github.head_ref-> ${{github.head_ref}}"
+      - name: Step 8
+        run: echo "github.job-> ${{github.job}}"
+      - name: Step 9
+        run: echo "github.ref-> ${{github.ref}}"
+      - name: Step 10
+        run: echo "github.repository-> ${{github.repository}}"
+      - name: Step 11
+        run: echo "github.repository_owner-> ${{github.repository_owner}}"
+      - name: Step 12
+        run: echo "github.run_id-> ${{github.run_id}}"
+      - name: Step 13
+        run: echo "github.run_number-> ${{github.run_number}}"
+      - name: Step 14
+        run: echo "github.sha-> ${{github.sha}}"
+      - name: Step 15
+        run: echo "github.token-> ${{github.token}}"
+      - name: Step 16
+        run: echo "github.workflow-> ${{github.workflow}}"
+      - name: Step 17
+        run: echo "github.head_ref-> ${{github.head_ref}}"
+      - name: Step 18
+        run: echo "github.workspace-> ${{github.workspace}}"
+      - name: Step 19
+        run: echo "job.container.id-> ${{job.container.id}}"
+      - name: Step 20
+        run: echo "job.container-> ${{job.container}}"
+      - name: Step 21
+        run: echo "github.action-> ${github.action}"
+      - name: Step 22
+        run: echo "github.actor-> ${github.actor}"
+      - name: Step 23
+        run: echo "github.base_ref-> ${github.base_ref}"  
